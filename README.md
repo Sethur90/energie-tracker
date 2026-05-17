@@ -53,87 +53,90 @@ venv\Scripts\activate  # Windows
 # 4. Abhängigkeiten installieren
 pip install -r requirements.txt
 ```
-Schnell-Installation (ohne venv)
+### Schnell-Installation (ohne venv)
 
+```bash
 pip install openpyxl scipy 
-
-Verwendung
+```
+### Verwendung
 1. Markdown-Format vorbereiten
 
 Deine energie_log.md sollte folgende Struktur haben:
 
-=== ENERGIEWERT LOG === 
-Datum: 15.01.2025 (Dienstag) 
-Energiewert: 85 ("[Ausgeschlafen]")
+    === ENERGIEWERT LOG === 
+    Datum: DD.MM.JJJJ (Wochentag) 
+    Energiewert: XX ("[Bezeichnung]")
+    
+    --- Schlaf --- 
+    Schlafbeginn: HH:MM Uhr 
+    Aufwachzeit: HH:MM Uhr 
+    Schlafdauer gesamt: X Std XX Min 
+    Schlafpuls: XX bpm 
+    HRV: XX ms 
+    Atmung: XX /min 
+    Hauttemperatur: -X,X bis +X,X °C
+    
+    --- Schlafphasen --- 
+    Wachphasen: XX Std XX Min 
+    REM-Schlaf: XX Std XX Min 
+    Leichtschlaf: XX Std XX Min 
+    Tiefschlaf: XX Std XX Min
+    
+    --- Aktivität Vortag --- 
+    Schritte: XXXXX 
+    Aktive Zeit: XX Std XX Min 
+    Art der Arbeit/Aktivität: [z.B. "viel laufen" / "LKW-Tag" / "frei"]
+    
+    --- Konsum Vortag --- 
+    Holy Energy: [Anzahl Portionen + Uhrzeiten, z.B. "2x (06:00, 10:30)"]
+    Kaffee/sonstiges Koffein: [Anzahl + Uhrzeiten, z.B. "1 Kaffee 05:30"] 
+    Cannabis: [Menge + Uhrzeit, z.B. "0,25g um 22:00" / "kein"]
+    
+    --- Wasser Vortag --- 
+    Holy Energy: [Anzahl x 500ml = XXXml] 
+    Holy Hydration: [XXXml / "kein"] 
+    Kaffee: [Anzahl x 150ml = XXXml / "kein"] 
+    Tee: [Anzahl x XXXml = XXXml / "kein"] 
+    Sonstiges: [XXXml / "kein"] 
+    Gesamt: [XXXXml]
+    
+    --- Faktoren (Samsung) --- 
+    Durchschnitt Schlafzeit: [Ausgezeichnet/Gut/Ausreichend/Achtung] 
+    Regelmäßigkeit Schlafzeit: [Ausgezeichnet/Gut/Ausreichend/Achtung] 
+    Schlafregelmäßigkeit: [Ausgezeichnet/Gut/Ausreichend/Achtung] 
+    Schlafzeit: [Ausgezeichnet/Gut/Ausreichend/Achtung] 
+    Aktivität Vortag: [Ausgezeichnet/Gut/Ausreichend/Achtung] 
+    Aktivitätskontinuität: [Ausgezeichnet/Gut/Ausreichend/Achtung] 
+    Schlafpuls: [Ausgezeichnet/Gut/Ausreichend/Achtung] 
+    Schlaf-HRV: [Ausgezeichnet/Gut/Ausreichend/Achtung]
+    
+    --- Körper (nur montags) --- 
+    Gewicht: XX,X kg 
+    Körperfett: XX,X % 
+    Muskelmasse: XX,X kg 
+    Körperwasser: XX,X % 
+    Skelettmasse: X,X kg
 
---- Schlaf --- 
-Schlafbeginn: 23:30 Uhr 
-Aufwachzeit: 07:30 Uhr 
-Schlafdauer gesamt: 8 Std 00 Min 
-Schlafpuls: 55 bpm 
-HRV: 45 ms 
-Atmung: 14 /min 
-Hauttemperatur: -0,5 bis +0,5 °C
-
---- Schlafphasen --- 
-Wachphasen: 0 Std 20 Min 
-REM-Schlaf: 1 Std 30 Min 
-Leichtschlaf: 3 Std 15 Min 
-Tiefschlaf: 2 Std 55 Min
-
---- Aktivität Vortag --- 
-Schritte: 8500 
-Aktive Zeit: 45 Std 30 Min 
-Art der Arbeit/Aktivität: [viel laufen]
-
---- Konsum Vortag --- 
-Holy Energy: [2x (06:00, 10:30)]
-Kaffee/sonstiges Koffein: [1 Kaffee 05:30] 
-Cannabis: [0,25g um 22:00]
-
---- Wasser Vortag --- 
-Holy Energy: [2 x 500ml = 1000ml] 
-Holy Hydration: [500ml] 
-Kaffee: [2 x 150ml = 300ml] 
-Tee: [1 x 250ml = 250ml] 
-Sonstiges: [kein] 
-Gesamt: [2050ml]
-
---- Faktoren (Samsung) --- 
-Durchschnitt Schlafzeit: [Ausgezeichnet] 
-Regelmäßigkeit Schlafzeit: [Gut] 
-Schlafregelmäßigkeit: [Gut] 
-Schlafzeit: [Ausgezeichnet] 
-Aktivität Vortag: [Ausreichend] 
-Aktivitätskontinuität: [Gut] 
-Schlafpuls: [Ausgezeichnet] 
-Schlaf-HRV: [Gut]
-
---- Körper (nur montags) --- 
-Gewicht: 75,2 kg 
-Körperfett: 18,5 % 
-Muskelmasse: 61,5 kg 
-Körperwasser: 58,3 % 
-Skelettmasse: 3,2 kg
-
---- Kontext --- 
-Stress (Watch): [Tagesschnitt: Niedrig | Ausreißer: -] 
-Stress (subjektiv): [Mittel] 
-Besonderheiten: [Gut geschlafen, viel Bewegung]
-
-======================
+    --- Kontext --- 
+    Stress (Watch): [Tagesschnitt: Entspannt/Niedrig/Mäßig/Hoch | Ausreißer: ...] 
+    Stress (subjektiv): [Niedrig/Mittel/Hoch] 
+    Besonderheiten: [...]
+    
+    ======================
 
 Jeder Tag wird mit ====================== getrennt.
 2. Skript anpassen
 
 Öffne energie_tracker.py und passe die Pfade an:
 
-md_pfad    = "/pfad/zur/deiner/energie_log.md"
-excel_pfad = "/pfad/zum/ausgabe/energie_log.xlsx"
+    md_pfad    = "/pfad/zur/deiner/energie_log.md"
+    excel_pfad = "/pfad/zum/ausgabe/energie_log.xlsx"
 
 3. Ausführen
 
+```bash
 python3 energie_tracker.py
+```
 
 Ergebnis: energie_log.xlsx wird erstellt/aktualisiert mit drei Tabs:
 
@@ -141,34 +144,35 @@ Ergebnis: energie_log.xlsx wird erstellt/aktualisiert mit drei Tabs:
     Übersicht: Diagramme + Wochentrends
     Korrelationen: Welche Faktoren beeinflussen deine Energie?
 
-Output
+### Output
 Excel-Datei (energie_log.xlsx)
-Tab 	Inhalt
-Rohdaten 	Alle Werte tabellarisch, sortiert nach Datum
-Übersicht 	4 Diagramme + Hilfstabelle (Energie-Trend, Schlafphasen, HRV, Schritte)
-Korrelationen 	Pearson-Korrelation: Wie stark beeinflussen Schlaf, Wasser, Stress etc. deine Energie?
-Technologie-Stack
+| Tab | Inhalt |
+|---|---|
+| **Rohdaten** | Alle Werte tabellarisch, sortiert nach Datum |
+| **Übersicht** | 4 Diagramme + Hilfstabelle (Energie-Trend, Schlafphasen, HRV, Schritte) |
+| **Korrelationen** | Pearson-Korrelation: Wie stark beeinflussen Schlaf, Wasser, Stress etc. deine Energie? |
 
-    Python 3.8+
-    openpyxl: Excel-Datei-Erstellung
-    scipy: Korrelationsberechnung
-    plotly (geplant): Interaktive HTML-Diagramme
+### Technologie-Stack
+
+- Python 3.8+
+- openpyxl: Excel-Datei-Erstellung
+- scipy: Korrelationsberechnung
+- plotly (geplant): Interaktive HTML-Diagramme
 
 Roadmap
-
-    Excel-Export mit Formatierung
-    Korrelationsanalyse
-    HTML-Dashboard (Phase 2)
-        Interaktive Diagramme mit plotly
-        Zeitraum-Filter (7/30/Alle Tage)
-        Kennzahl-Karten (Durchschnitte, Trends)
-        Konsum-Timeline mit Uhrzeiten
-        Korrelations-Heatmap
-        Catppuccin Mocha Dark Mode
-    CSV-Export
-    Datenvalidierung im Markdown
-    Web-Interface (gehostete Version)
-    Automatische Backups
+- [x] Excel-Export mit Formatierung
+- [x] Korrelationsanalyse
+- [ ] HTML-Dashboard (Phase 2)
+- [ ] Interaktive Diagramme mit plotly
+- [ ] Zeitraum-Filter (7/30/Alle Tage)
+- [ ] Kennzahl-Karten (Durchschnitte, Trends)
+- [ ] Konsum-Timeline mit Uhrzeiten
+- [ ] Korrelations-Heatmap
+- [ ] Catppuccin Mocha Dark Mode
+- [ ] CSV-Export
+- [ ] Datenvalidierung im Markdown
+- [ ] Web-Interface (gehostete Version)
+- [ ] Automatische Backups
 
 Lizenz
 
