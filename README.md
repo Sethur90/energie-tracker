@@ -159,7 +159,7 @@ Excel-Datei (energie_log.xlsx)
 - scipy: Korrelationsberechnung
 - plotly (geplant): Interaktive HTML-Diagramme
 
-Roadmap
+### Roadmap
 - [x] Excel-Export mit Formatierung
 - [x] Korrelationsanalyse
 - [ ] HTML-Dashboard (Phase 2)
@@ -174,16 +174,18 @@ Roadmap
 - [ ] Web-Interface (gehostete Version)
 - [ ] Automatische Backups
 
-Lizenz
+### Lizenz
 
-MIT License – siehe LICENSE Datei
-Contributing
+MIT License – siehe [LICENSE](LICENSE) Datei
+
+### Contributing
 
 Verbesserungsvorschläge, Bug-Reports und Pull Requests sind willkommen! 
 
 Einfach ein Issue öffnen oder einen PR einreichen.
-Kontakt
 
-Bei Fragen oder Feedback: GitHub Issues
+### Kontakt
 
-Made with ❤️ für Daten-Enthusiasten
+Bei Fragen oder Feedback: [GitHub Issues](https://github.com/Sethur90/energie-tracker/issues)
+
+### Made with ❤️ für Daten-Enthusiasten
